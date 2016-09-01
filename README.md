@@ -480,11 +480,11 @@ xero.Contact.batch_save do
 end
 ```
 
-`batch_save` will issue one PUT request for every 2,000 unsaved records built within its block, and one
-POST request for evert 2,000 existing records that have been altered within its block. If any of the
+`batch_save` will issue one PUT request for every 50 unsaved records built within its block, and one
+POST request for evert 50 existing records that have been altered within its block. If any of the
 unsaved records aren't valid, it'll return `false` before sending anything across the wire;
 otherwise, it returns `true`. `batch_save` takes one optional argument: the number of records to
-create/update per request. (Defaults to 2,000.)
+create/update per request. (Defaults to 50.)
 
 If you'd rather build and send the records manually, there's a `save_records` method:
 ```ruby
